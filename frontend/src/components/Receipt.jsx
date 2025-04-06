@@ -19,16 +19,25 @@ const Receipt = ({ data }) => {
       const file = new File([blob], `receipt-${data.login}.png`, { type: 'image/png' });
 
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
-        await navigator.share({ files: [file], title: 'GitHub Receipt', text: 'Check out this GitHub Receipt!' });
+        await navigator.share({
+          files: [file],
+          title: 'GitHub Receipt',
+          text: 'Check out this GitHub Receipt!'
+        });
       } else {
-        alert('Sharing not supported. The image has been copied to your clipboard.');
+        alert('Sharing not supported. Image copied to clipboard.');
         navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
       }
     });
   };
 
   return (
-    <div className="mt-10 max-w-md mx-auto text-left bg-white text-black p-4 shadow-xl font-mono" ref={receiptRef}>
+    <div ref={receiptRef} className="mt-10 max-w-md mx-auto text-left bg-white text-black p-4 shadow-xl font-mono">
+      {/* Torn Top Edge */}
+      <svg className="w-full" height="20" viewBox="0 0 100 20" preserveAspectRatio="none">
+        <polygon points="0,0 100,0 95,20 90,0 85,20 80,0 75,20 70,0 65,20 60,0 55,20 50,0 45,20 40,0 35,20 30,0 25,20 20,0 15,20 10,0 5,20 0,0" fill="white" />
+      </svg>
+
       <h2 className="text-center font-bold text-xl">GITHUB RECEIPT</h2>
       <p className="text-center text-sm">{data.date}</p>
       <p className="text-center text-xs mb-2">ORDER #{Math.floor(1000 + Math.random() * 9000)}</p>
@@ -52,7 +61,7 @@ const Receipt = ({ data }) => {
       <p><strong>COMMITS (30d):</strong> {data.commit_count}</p>
       <p className="font-bold">CONTRIBUTION SCORE: <span className="float-right">{data.contribution_score}</span></p>
 
-      <p className="text-center text-sm mt-2">Served by: Dennis Ritchie</p>
+      <p className="text-center text-sm mt-2">Served by: Parth Shukla</p>
       <p className="text-center text-sm">{new Date().toLocaleTimeString()}</p>
 
       <hr className="my-2" />
@@ -65,14 +74,24 @@ const Receipt = ({ data }) => {
       <p className="text-xs">CARDHOLDER: {data.login.toUpperCase()}</p>
 
       <p className="text-center font-bold mt-4">THANK YOU FOR CODING!</p>
+
       <div className="flex justify-center mt-4">
         <Barcode value={data.html_url} width={1.5} height={40} displayValue={false} />
       </div>
+
+      {/* Torn Bottom Edge */}
+      <svg className="w-full mt-4" height="20" viewBox="0 0 100 20" preserveAspectRatio="none">
+        <polygon points="0,20 100,20 95,0 90,20 85,0 80,20 75,0 70,20 65,0 60,20 55,0 50,20 45,0 40,20 35,0 30,20 25,0 20,20 15,0 10,20 5,0 0,20" fill="white" />
+      </svg>
 
       <div className="flex justify-center gap-4 mt-4">
         <button onClick={handleDownload} className="text-sm underline">⬇️ Download</button>
         <button onClick={handleShare} className="text-sm underline">🔗 Share</button>
       </div>
+
+      <p className="text-sm text-neutral-400 mt-8">
+        made by Parth | <a href="https://buymeacoffee.com/parthshukly" target="_blank" rel="noopener noreferrer" className="underline hover:text-white">buy Parth a coffee</a>
+      </p>
     </div>
   );
 };

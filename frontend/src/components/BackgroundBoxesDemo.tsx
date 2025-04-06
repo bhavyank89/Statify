@@ -50,7 +50,7 @@ export default function BackgroundBoxesDemo({ onSubmit }: BackgroundBoxesDemoPro
           </button>
         </form>
         <p className="text-sm text-neutral-400 mt-8">
-          made by ankit | <a href="https://www.buymeacoffee.com/ankit" target="_blank" rel="noopener noreferrer" className="underline hover:text-white">buy ankit a coffee</a>
+          made by Parth | <a href="https://buymeacoffee.com/parthshukly" target="_blank" rel="noopener noreferrer" className="underline hover:text-white">buy Parth a coffee</a>
         </p>
       </div>
     </div>
