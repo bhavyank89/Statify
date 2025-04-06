@@ -25,11 +25,13 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black dark:text-white">
+    <div className="min-h-screen w-full bg-slate-900 relative overflow-hidden">
       <BackgroundBoxesDemo onSubmit={handleFetchData} />
-      {loading && <LoadingSpinner />}
-      {error && <ErrorMessage message={error} />}
-      {githubData && <Receipt data={githubData} />}
+      <div className="relative z-50">
+        {loading && <LoadingSpinner />}
+        {error && <ErrorMessage message={error} />}
+        {githubData && <Receipt data={githubData} />}
+      </div>
     </div>
   );
 };
