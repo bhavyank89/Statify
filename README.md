@@ -2,8 +2,6 @@
 
 A modern web application for generating and managing digital receipts with a beautiful user interface and seamless GitHub integration.
 
-![GitReceipt Logo](https://via.placeholder.com/150?text=GitReceipt)
-
 ## 🌟 Features
 
 - **Digital Receipt Generation**: Create professional-looking digital receipts
@@ -90,7 +88,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👥 Authors
 
-- Your Name - Initial work
+- Parth Shukla - Initial work
 
 ## 🙏 Acknowledgments
 
@@ -99,4 +97,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-Made with ❤️ by [Your Name] 
+Made with ❤️ by Parth
