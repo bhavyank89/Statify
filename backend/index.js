@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import githubRoutes from './routes/githubRoutes.js';
+import githubRoutes from './src/routes/githubRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT || 5000;
